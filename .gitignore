@@ -10,7 +10,7 @@ target/
 # Ignore IDE and editor files
 .vscode/
 .idea/
-.cmake-build-debug/
+cmake-build-debug/
 *.sublime-project
 *.sublime-workspace
 
