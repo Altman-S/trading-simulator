@@ -9,18 +9,18 @@ include_directories(helper)
 
 add_executable(trading_simulator
         core/get_file_names.cpp
-        core/get_file_names.h
         core/holding.cpp
-        core/holding.h
         core/main.cpp
         core/market.cpp
-        core/market.h
         core/portfolio.cpp
-        core/portfolio.h
         core/read_data.cpp
-        core/read_data.h
         core/stock.cpp
-        core/stock.h
+        core/header/get_file_names.h
+        core/header/holding.h
+        core/header/market.h
+        core/header/portfolio.h
+        core/header/read_data.h
+        core/header/stock.h
         estimator/weights_estimator.cpp
         helper/print_help.cpp
         helper/print_help.h)
