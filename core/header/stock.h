@@ -9,7 +9,7 @@ public:
     int id;
     std::string ticker;
     std::vector<float> prices;
-    float curr_price, init_price, tmr_price_set;
+    float cur_price, init_price, tmr_price_set;
     float ma_2days, ma_7days, ma_14days, ma_30days;
 
     Stock(int, std::string, std::vector<float>);
