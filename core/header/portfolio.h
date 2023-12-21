@@ -9,11 +9,11 @@
 class Portfolio {
 public:
     float cash;
-    std::vector<Holding*> curr_holdings;
-    std::vector<Holding*> past_holdings;
+    std::vector<Holding> cur_holdings;
+    std::vector<Holding> past_holdings;
 
     Portfolio(float);
-    float get_curr_holdings_value();
+    float get_cur_holdings_value();
     void buy(Stock*);
     void sell_all();
 };
