@@ -6,7 +6,7 @@ Stock::Stock(int id, std::string ticker, std::vector<float> prices) {
     this->prices = prices;
 
     cur_price = init_price = prices[0];
-    tmr_price_est = 0;
+    price_tmr_est = 0;
 
     ma_2days = ma_7days = ma_14days = ma_30days = cur_price;
 }
