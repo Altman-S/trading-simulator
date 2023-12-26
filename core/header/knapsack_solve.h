@@ -3,6 +3,6 @@
 
 #include <vector>
 
-std::vector<int> knapsack_solve(int capacity, int n, std::vector<int> weight, std::vector<float> value);
+std::vector<int> knapsack_solve(int capacity, int n, std::vector<int> weights, std::vector<float> values);
 
 #endif
