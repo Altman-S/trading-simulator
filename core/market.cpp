@@ -17,7 +17,7 @@ void Market::update(int day) {
 
 void Market::predict(int day) {
     // TODO: the weights need to be estimated
-    float weights[4] = {0, 0.05, 0.5, 0.5};
+    float weights[4] = {0.879, 0.255, -0.610, 0.394};
     for (int i = 0; i < size; ++i) {
         stocks.at(i).price_tmr_est = weights[0] * stocks.at(i).ma_2days + weights[1] * stocks.at(i).ma_7days
                                    + weights[2] * stocks.at(i).ma_14days + weights[3] * stocks.at(i).ma_30days;

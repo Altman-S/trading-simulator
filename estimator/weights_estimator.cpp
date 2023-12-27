@@ -95,15 +95,23 @@ int main() {
     float w3_increment = 0.001;
     float w4_increment = 0.001;
 
-    // for (float i = 1.0; i <= 1.0; i += w1_increment) w1_vals.push_back(i);
-    // for (float i = -0.6; i <= -0.4; i += w2_increment) w2_vals.push_back(i);
-    // for (float i = -0.4; i <= 0.6; i += w3_increment) w3_vals.push_back(i);
-    // for (float i = -0.1; i <= 0.1; i += w4_increment) w4_vals.push_back(i);
+    // Test 1
+    // for (float i = -1.0; i <= 1.0; i += w1_increment) w1_vals.push_back(i);
+    // for (float i = -1.0; i <= 1.0; i += w2_increment) w2_vals.push_back(i);
+    // for (float i = -1.0; i <= 1.0; i += w3_increment) w3_vals.push_back(i);
+    // for (float i = -1.0; i <= 1.0; i += w4_increment) w4_vals.push_back(i);
 
-    for (float i = 0.9; i <= 1.2; i += w1_increment) w1_vals.push_back(i);
-    for (float i = -0.549; i <= -0.549; i += w2_increment) w2_vals.push_back(i);
-    for (float i = 0.521; i <= 0.523; i += w3_increment) w3_vals.push_back(i);
-    for (float i = -0.053; i <= -0.051; i += w4_increment) w4_vals.push_back(i);
+    // Test 2
+    // for (float i = 0.88; i <= 0.88; i += w1_increment) w1_vals.push_back(i);
+    // for (float i = 0.2; i <= 0.4; i += w2_increment) w2_vals.push_back(i);
+    // for (float i = -0.85; i <= -0.65; i += w3_increment) w3_vals.push_back(i);
+    // for (float i = 0.38; i <= 0.58; i += w4_increment) w4_vals.push_back(i);
+
+    // Test 3
+    for (float i = 0.8; i <= 1.0; i += w1_increment) w1_vals.push_back(i);
+    for (float i = 0.254; i <= 0.256; i += w2_increment) w2_vals.push_back(i);
+    for (float i = -0.610; i <= -0.608; i += w3_increment) w3_vals.push_back(i);
+    for (float i = 0.394; i <= 0.396; i += w4_increment) w4_vals.push_back(i);
 
 
     float err_lowest = 1e9;
@@ -113,11 +121,11 @@ int main() {
     for (float w1 : w1_vals) {
         std::cout << "w1: " << w1 << std::endl;
         for (float w2 : w2_vals) {
-            std::cout << "w2: " << w2 << std::endl;
+            // std::cout << "w2: " << w2 << std::endl;
             for (float w3 : w3_vals) {
-                std::cout << "w3: " << w3 << std::endl;
+                // std::cout << "w3: " << w3 << std::endl;
                 for (float w4 : w4_vals) {
-                    std::cout << "w4: " << w4 << std::endl;
+                    // std::cout << "w4: " << w4 << std::endl;
                     float cur_gain = 0;
                     
                     for (int i = 0; i < days - 1; ++i) {
