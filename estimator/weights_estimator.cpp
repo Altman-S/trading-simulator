@@ -9,9 +9,10 @@
 
 // Read the S&P data to calculate the weights
 // 2021/10/1 - 2023/9/29, 502 working days in total
-void read_data(std::vector<float> &prices) {
-    std::ifstream file("SPY.csv");
+std::vector<float> read_data() {
+    std::vector<float> prices;
 
+    std::ifstream file("SPY.csv");
     if (!file.is_open()) {
         std::cerr << "Cannot find the input data!" << std::endl;
     }
@@ -19,14 +20,12 @@ void read_data(std::vector<float> &prices) {
     std::string line;
     std::getline(file, line);  // ignore the first line
     float val;
-    int day = 0;
     while (std::getline(file, line)) {
         std::stringstream ss(line);
         int col = 0;
         while (ss >> val) {
             if (col == 7) {
-                prices[day] = val;
-                ++day;
+                prices.push_back(val);
             }
 
             if (ss.peek() == ',') {
@@ -36,8 +35,9 @@ void read_data(std::vector<float> &prices) {
             ++col;
         }
     }
-
     file.close();
+
+    return prices;
 }
 
 // Generate the moving average for current stock prices
@@ -78,30 +78,46 @@ int main() {
     // Read the SPY data in
     const int days = 502;
     std::vector<float> prices;
-    read_data(prices);
+    prices = read_data();
 
     // Define the range of weights for the estimator
-    int granularity = 10;
+    int granularity = 1000;
     float start = -1;
-    float mid = 0;
     float end = 1;
-    float increment = end / granularity;
-    std::vector<float> vals;
+    float increment = (end - start) / granularity;
+    std::vector<float> w1_vals;
+    std::vector<float> w2_vals;
+    std::vector<float> w3_vals;
+    std::vector<float> w4_vals;
 
-    vals.push_back(start);
-    for (int i = 1; i < granularity; ++i) vals.push_back(start + i * increment);
-    vals.push_back(mid);
-    for (int i = 1; i < granularity; ++i) vals.push_back(mid + i * increment);
-    vals.push_back(end);
+    float w1_increment = 0.001;
+    float w2_increment = 0.001;
+    float w3_increment = 0.001;
+    float w4_increment = 0.001;
+
+    // for (float i = 1.0; i <= 1.0; i += w1_increment) w1_vals.push_back(i);
+    // for (float i = -0.6; i <= -0.4; i += w2_increment) w2_vals.push_back(i);
+    // for (float i = -0.4; i <= 0.6; i += w3_increment) w3_vals.push_back(i);
+    // for (float i = -0.1; i <= 0.1; i += w4_increment) w4_vals.push_back(i);
+
+    for (float i = 0.9; i <= 1.2; i += w1_increment) w1_vals.push_back(i);
+    for (float i = -0.549; i <= -0.549; i += w2_increment) w2_vals.push_back(i);
+    for (float i = 0.521; i <= 0.523; i += w3_increment) w3_vals.push_back(i);
+    for (float i = -0.053; i <= -0.051; i += w4_increment) w4_vals.push_back(i);
+
 
     float err_lowest = 1e9;
     float gain_largest = 0;
     std::vector<float> weights_best(4, 0);
 
-    for (float w1 : vals) {
-        for (float w2 : vals) {
-            for (float w3 : vals) {
-                for (float w4 : vals) {
+    for (float w1 : w1_vals) {
+        std::cout << "w1: " << w1 << std::endl;
+        for (float w2 : w2_vals) {
+            std::cout << "w2: " << w2 << std::endl;
+            for (float w3 : w3_vals) {
+                std::cout << "w3: " << w3 << std::endl;
+                for (float w4 : w4_vals) {
+                    std::cout << "w4: " << w4 << std::endl;
                     float cur_gain = 0;
                     
                     for (int i = 0; i < days - 1; ++i) {

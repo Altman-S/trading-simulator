@@ -1,0 +1,40 @@
+
+# Test 1
+Range: [-1, 1]
+Granularity: 100, Increment: 0.02
+Largest total gain: 16517.4
+weights:
+1
+-0.58
+0.5
+-2.23517e-08
+
+
+# Test 2
+w1: [1, 1]
+w2: [-0.6, -0.4]
+w3: [0.4, 0.6]
+w4: [-0.1, 0.1]
+Increment: 0.001
+Largest total gain: 16716.2
+weights:
+1
+-0.549001
+0.520995
+-0.0529999
+
+
+# Test 3
+w1: [0.9, 1.2]
+w2: [-0.549, -0.549]
+w3: [0.521, 0.523]
+w4: [-0.053, -0.051]
+Granularity: 1000, Increment: 0.002
+Largest total gain: 16715.3
+weights:
+0.999999
+-0.549
+0.521
+-0.053
+
+
