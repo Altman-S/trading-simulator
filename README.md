@@ -45,7 +45,7 @@ In pursuit of simplicity, I opted to formulate a trading strategy based on movin
 **1. Setup:**
 
 + Clone the project and navigate to the `trading-simulator` directory
-+ Download basic compiler tools. Install cmake and gcc using `brew install cmake clang` for macOS
++ Download basic compiler tools. Install cmake and clang using `brew install cmake clang` for macOS
 + If you use Linux or Window, you need to download these compiler tools compatible to your computer system, like `sudo apt-get install cmake gcc` for Linux
 
 **2. Compile and Run:**
@@ -56,14 +56,14 @@ In pursuit of simplicity, I opted to formulate a trading strategy based on movin
 + For weights estimator program:
     - `cd estimator` && `clang weights_estimator.cpp -o weights_estimator`
     - Run `./weights_estimator` to get the result
-    - You can also adjust the ranges and granularity of weights to generate your own result
+    - You can also adjust the range and granularity of weights to generate your own result
 
 **3. Adding Stocks:**
 
-+ All the price data are downloaded from Yahoo Finance
-+ We use the daily price data of SPY (10.01.2020 - 09.30.2022) to calculate the weights
++ All the stock data are downloaded from Yahoo Finance
++ We use the historical daily price data of SPY (10.01.2020 - 09.30.2022) to calculate the weights
 + We will do the trading for these stocks: APPL, AMD, BP, META, NVDA and TSLA
-+ You can also download the historical daily price data from Yahoo Finance, and put them into `data` folder
++ You can also download stock data from Yahoo Finance, and put them into `data` folder
 
 
 
