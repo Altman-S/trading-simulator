@@ -5,7 +5,7 @@
 + data
 + portfolio
 + weights estimator
-
++ knapsack solution
 
 ## Overview
 
@@ -21,6 +21,49 @@ Given my passion for the fintech industry and its potential to make a tangible i
 I firmly believe that engaging with real-world projects, such as the trading simulator, not only strengthens my technical capabilities but also provides me with a solid foundation to pursue a career in the dynamic field of fintech.
 
 
+## Trading strategy
+
+In pursuit of simplicity, I opted to formulate a trading strategy based on moving averages (2, 7, 14, and 30 days).
+
+
+## Knapsack solution for stock exchange
+
+
+
+## Limitation
+
++ only one CPU, weights estimator could be very slow if the granularity is high
+
+
+## Future work
+
++ another trading strategy
++ realtime data every day
+
+## How to use
+
+**1. Setup:**
+
++ Clone the project and navigate to the `trading-simulator` directory
++ Download basic compiler tools. Install cmake and gcc using `brew install cmake clang` for macOS
++ If you use Linux or Window, you need to download these compiler tools compatible to your computer system, like `sudo apt-get install cmake gcc` for Linux
+
+**2. Compile and Run:**
+
++ Create a build folder with `mkdir build` && `cd build`
++ Compile the program with `cmake ..` && `make`
++ Run the program using `./trading_simulator`, and observe the generated profit information
++ For weights estimator program:
+    - `cd estimator` && `clang weights_estimator.cpp -o weights_estimator`
+    - Run `./weights_estimator` to get the result
+    - You can also adjust the ranges and granularity of weights to generate your own result
+
+**3. Adding Stocks:**
+
++ All the price data are downloaded from Yahoo Finance
++ We use the daily price data of SPY (10.01.2020 - 09.30.2022) to calculate the weights
++ We will do the trading for these stocks: APPL, AMD, BP, META, NVDA and TSLA
++ You can also download the historical daily price data from Yahoo Finance, and put them into `data` folder
 
 
 
