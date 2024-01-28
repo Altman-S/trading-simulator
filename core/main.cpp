@@ -3,13 +3,13 @@
 #include <vector>
 #include <cmath>
 
-#include "stock.h"
-#include "market.h"
-#include "holding.h"
-#include "portfolio.h"
-#include "get_file_names.h"
-#include "read_data.h"
-#include "knapsack_solve.h"
+#include "header/stock.h"
+#include "header/market.h"
+#include "header/holding.h"
+#include "header/portfolio.h"
+#include "header/get_file_names.h"
+#include "header/read_data.h"
+#include "header/knapsack_solve.h"
 
 
 int main() {

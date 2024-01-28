@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 
-#include <math.h>
+#include <cmath>
 #include <vector>
 #include <string>
 
@@ -12,7 +12,9 @@
 std::vector<float> read_data() {
     std::vector<float> prices;
 
-    std::ifstream file("SPY.csv");
+    std::filesystem::path currentSourcePath = __FILE__;
+    std::filesystem::path dataPath = currentSourcePath.parent_path() / "SPY.csv";
+    std::ifstream file(dataPath.string());
     if (!file.is_open()) {
         std::cerr << "Cannot find the input data!" << std::endl;
     }
