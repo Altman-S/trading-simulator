@@ -11,7 +11,7 @@ std::vector<std::string> get_file_names() {
         while (dir_entered_ptr != nullptr) {
             std::string cur_file_name = dir_entered_ptr->d_name;
             // Add the file name when it's not . or ..
-            if (cur_file_name.compare(".") && cur_file_name.compare("..")) {
+            if (cur_file_name != "." && cur_file_name != ".." && cur_file_name != ".DS_Store") {
                 file_names.push_back(cur_file_name);
             }
             dir_entered_ptr = readdir(dir_ptr);

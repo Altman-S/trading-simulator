@@ -7,7 +7,7 @@ std::vector<Stock> read_data(int days) {
     int stock_index = 0;  // mock index for each stock
 
     std::vector<std::string> file_names = get_file_names();
-    for (std::string file_name : file_names) {
+    for (const std::string& file_name : file_names) {
         std::ifstream file("../data/" + file_name);
 
         if (!file.is_open()) {
@@ -26,7 +26,7 @@ std::vector<Stock> read_data(int days) {
 
             int col = 0;
             while (ss >> price) {
-                if (col == 5) {
+                if (col == 7) {
                     prices.push_back(price);
                     break;
                 }

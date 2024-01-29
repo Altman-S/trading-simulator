@@ -16,7 +16,7 @@ int main() {
     std::cout << "trading simulator" << std::endl;
 
     // Initialise the days and cash parameter
-    const int days = 251;
+    const int days = 250;
     const float initial_cash = 2000;
 
     // Initialise the market and portfolio
@@ -24,9 +24,9 @@ int main() {
     Portfolio portfolio(initial_cash);
 
     // Trading simulator main code
-    int day = 1;
+    int day = 0;
     market.update(day);
-    ++day;
+    // ++day;
     while (day < days - 2) {
         // Update stock price and moving averages for current day
         market.update(day);
